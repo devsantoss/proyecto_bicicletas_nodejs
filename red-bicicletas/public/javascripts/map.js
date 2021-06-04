@@ -6,3 +6,16 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     zoomOffset: -1,
 }).addTo(mymap);
+
+// L.marker([4.613618, -74.064602], 13).addTo(mymap); la maca
+
+$.ajax({
+    dataType: 'json',
+    url: 'api/bicicletas',
+    success: function (result) {
+        console.log(result);
+        result.bicicletas.forEach(function (bici){
+            L.marker(bici.ubicacion, {title: bici.id}).addTo(mymap);
+        });
+    }
+});
