@@ -39,3 +39,35 @@ npm run devstart
 * http://localhost:3000/api/bicicletas/create (POST para crear una nueva bicicleta)
 * http://localhost:3000/api/bicicletas/update (PUT para actualizar una bicicleta)
 * http://localhost:3000/api/bicicletas/delete (DELETE para borrar una bicicleta)
+
+## Semana 2 
+
+### Unit Testing en modelo y API
+
+![](https://imgur.com/AQnH3NH.png)
+
+![](https://imgur.com/Edr3EMp.png)
+
+### Realizando pruebas en Postman de los endpoints de la API
+
+#### Estado inicial de la api sin bicicletas
+![](https://imgur.com/sIeNUOG.png)
+
+#### Añadir una nueva bicicleta
+![](https://imgur.com/i6s75Aa.png)
+Petición GET para verificar la creación de la nueva bicicleta
+![](https://imgur.com/f5ms77Q.png)
+
+#### Borrar una bicicleta
+![](https://imgur.com/GETJewl.png)
+Petición GET para verificar la eliminación de la nueva bicicleta
+![](https://imgur.com/Wo1AelM.png)
+
+#### Actualizar una bicicleta
+Bicicleta inicial
+![](https://imgur.com/f5ms77Q.png)
+Petición PUT para actualizar la bici con id 1
+![](https://imgur.com/phNO5ly.png)
+Petición GET para comprobar la actualización
+![](https://imgur.com/WmwQlMd.png)
+
