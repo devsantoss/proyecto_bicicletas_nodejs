@@ -16,7 +16,7 @@ bicicletaSchema.methods.toString = function() {
 
 bicicletaSchema.statics.allBicis = function(cb) {
     return this.find({}, cb);
-}
+};
 
 bicicletaSchema.statics.createInstance = function(code, color, modelo, ubicacion) {
     return new this({
@@ -24,10 +24,20 @@ bicicletaSchema.statics.createInstance = function(code, color, modelo, ubicacion
         color: color,
         modelo: modelo,
         ubicacion: ubicacion
-    })
-}
+    });
+};
 
+bicicletaSchema.statics.add = function (aBici, cb) {
+    this.create(aBici, cb);
+};
 
+bicicletaSchema.statics.findByCode = function (aCode, cb) {
+    return this.findOne({code: aCode}, cb);
+};
+
+bicicletaSchema.statics.removeByCode = function (aCode, cb) {
+    return this.deleteOne({code: aCode}, cb);
+};
 module.exports = mongoose.model('Bicicleta', bicicletaSchema);
 
 
