@@ -1,3 +1,38 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var bicicletaSchema = new Schema({
+    code: Number,
+    color: String,
+    modelo: String,
+    ubicacion: {
+        type: [Number], index: { type: '2dsphere', sparse: true}
+    }
+});
+
+bicicletaSchema.methods.toString = function() {
+    return 'code: ' + this.code + ' | color: ' + this.color;
+};
+
+bicicletaSchema.statics.allBicis = function(cb) {
+    return this.find({}, cb);
+}
+
+bicicletaSchema.statics.createInstance = function(code, color, modelo, ubicacion) {
+    return new this({
+        code: code,
+        color: color,
+        modelo: modelo,
+        ubicacion: ubicacion
+    })
+}
+
+
+module.exports = mongoose.model('Bicicleta', bicicletaSchema);
+
+
+
+/*
 var Bicicleta = function(id, color, modelo, ubicacion) {
     this.id = id;
     this.color = color;
@@ -37,5 +72,6 @@ var b = new Bicicleta(2, 'azul', 'urbana', [4.615788, -74.068904]);
 
 Bicicleta.add(a);
 Bicicleta.add(b);
-*/
+
 module.exports = Bicicleta;
+*/
